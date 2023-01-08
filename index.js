@@ -1,8 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
+// A schema is a collection of type definitions (hence "typeDefs") that together define the "shape" of queries that are executed against your data.
 const typeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
@@ -29,13 +27,13 @@ const books = [
       title: 'Wuthering Heights',
       author: 'Emily Brontë',
     },
-  ];
+];
 
-  const resolvers = {
-    Query: {
-      books: () => books,
-    },
-  };
+const resolvers = {
+  Query: {
+    books: () => books,
+  },
+};
 
   // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.

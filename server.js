@@ -7,20 +7,25 @@ const port = process.env.PORT || 9000;
 const app = express();
 
 const fs = require('fs')
+
 const typeDefs = fs.readFileSync('./schema.graphql',{encoding:'utf-8'})
 const resolvers = require('./resolvers')
 
-// const {makeExecutableSchema} = require('graphql-tools')
-// const schema = makeExecutableSchema({typeDefs, resolvers})
+const { ApolloServer, gql } = require('apollo-server');
+
 
 app.use(cors(), bodyParser.json());
+const server = new ApolloServer({ typeDefs, resolvers });
 
+// not working
+// const {makeExecutableSchema} = require('graphql-tools')
+// const schema = makeExecutableSchema({typeDefs, resolvers})
 // const  {graphiqlExpress,graphqlExpress} = require('apollo-server-express')
 // app.use('/graphql',graphqlExpress({schema}))
 // app.use('/graphiql',graphiqlExpress({endpointURL:'/graphql'}))
 // https://www.tutorialspoint.com/graphql/graphql_environment_setup.htm
 
-app.listen(
+server.listen(
    port, () => console.info(
       `Server started on port ${port}`
    )

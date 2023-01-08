@@ -1,6 +1,7 @@
 
 ## App name
-graphql apollo demo
+graphql 
+apollo server
 
 
 
@@ -18,7 +19,7 @@ graphql apollo demo
 ## Useful Links
 
 - [crypto](http://localhost:5000/api/crypto)
-- [server](http://localhost:3000/)
+- [apollo-server](http://localhost:4000/)
 
 
 ## Requirements
@@ -42,7 +43,9 @@ nodejs
 ## How to build the application.
 create multiple JS files
 ## How to test the application.
-test
+commnad to run the app-
+>node index.js
+>npm start
 ## Software tools used.
 vscode
 ## Tangible results.
