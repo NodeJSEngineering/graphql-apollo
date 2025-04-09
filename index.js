@@ -16,7 +16,12 @@ const typeDefs = gql`
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    books: [Book]
+     books: [Book]
+     book(title: String!): Book
+  }
+
+    type Mutation {
+    addBook(title: String!, author: String!): Book
   }
 `;
 
@@ -34,6 +39,14 @@ const books = [
 const resolvers = {
   Query: {
     books: () => books,
+    book: (_, { title }) => books.find(book => book.title === title),
+  },
+  Mutation: {
+    addBook: (_, { title, author }) => {
+      const newBook = { title, author };
+      books.push(newBook);
+      return newBook;
+    },
   },
 };
 
